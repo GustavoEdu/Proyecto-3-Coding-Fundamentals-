@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'Pusab';
+  src: url('../fonts/PUSAB___.otf');
+}
+:root {
+  --dark-blue: #023E8A;
+  --dark-gold: #A1582C;
+  --soft-gold: #C1743F;
+  --just-gold: #FFC800;
+  --just-black: #000000;
+  --just-white: #FFFFFF;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Pusab", cursive;
+}
+body {
+  background-color: var(--dark-blue);
+}
+.header__main-title {
+  margin-top: 2rem;
+  font-size: 3.6em;
+  text-align: center;
+  color: var(--just-white);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--just-black);
+}
+.leaderboard-container {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leaderboard {
+  width: 60vw;
+  height: 75vh;
+  overflow: auto;
+  border: 5px solid var(--just-black);
+}
+.userCard {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+.userCard--odd {
+  background-color: var(--dark-gold);
+}
+.userCard--even {
+  background-color: var(--soft-gold);
+}
+.userCard__y-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.userCard__x-container {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+.userCard__icon {
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 5rem;
+}
+.userCard__rank {
+  margin-bottom: 1rem;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--just-black);
+  color: var(--just-gold);
+}
+.userCard__username {
+  font-size: 3em;
+  font-weight: bold;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--just-black);
+  color: var(--just-gold);
+}
+.userCard__stat {
+  font-size: 1.8rem;;
+  color: var(--just-white);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--just-black);
+}
+.icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-left: 0.56rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.icon--star {
+  background-image: url("../img/star.png");
+}
+.icon--diamond {
+  background-image: url("../img/diamond.png");
+}
+.icon--coin {
+  background-image: url("../img/coin.png");
+}
+.icon--silvercoin {
+  background-image: url("../img/silvercoin.png");
+}
+.icon--demon {
+  background-image: url("../img/demon.png");
+}
+.icon--cp {
+  background-image: url("../img/cp.png");
+}
