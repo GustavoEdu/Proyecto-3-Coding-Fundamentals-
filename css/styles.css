@@ -8,9 +8,12 @@
   --dark-gold: #A1582C;
   --soft-gold: #C1743F;
   --just-gold: #FFC800;
+  --light-gold: #B96C39;
+  --dark-brown: rgba(147, 79, 39, 0.8);
   --hard-brown: #803E1E;
   --soft-brown: #BE6F3F;
   --just-black: #000000;
+  --soft-gray: rgba(0, 0, 0, 0.5);
   --just-white: #FFFFFF;
 }
 * {
@@ -256,6 +259,83 @@ body {
 .user-icon--death-effect {
   width: 57px;
   height: 57px;
+}
+.user-panel__comments-container {
+  height: 17rem;
+  margin-top: 1.36rem;
+  display: flex;
+  justify-content: center;
+}
+.user-panel__comments {
+  width: 80%;
+  height: 17rem;
+  overflow: auto;
+  border: 2px solid var(--hard-brown);
+  border-radius: 12px;
+  background-color: var(--soft-brown);
+}
+.user-panel__user-comment-wrapper {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-panel__user-comment-wrapper--odd {
+  background-color: var(--dark-gold);
+}
+.user-panel__user-comment-wrapper--even {
+  background-color: var(--light-gold);
+}
+.user-panel__user-comment {
+  width: calc(100% - 1.6rem);
+  height: calc(100% - 1.6rem);
+  padding: 0.8rem;
+  border-radius: 12px;
+  background-color: var(--dark-brown);
+}
+.user-panel__commenter-data-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-panel__commenter-username {
+  font-size: 1.65em;
+  color: var(--just-gold);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--just-black);
+}
+.user-panel__likes-container {
+  display: flex;
+  gap: 0.56rem;
+  justify-content: center;
+  align-items: center;
+}
+.icon--like {
+  background-image: url("../img/like.png");
+}
+.user-panel__likes {
+  font-size: 1.6em;
+  color: var(--just-white);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--just-black);
+}
+.user-panel__comment-content-container {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+.user-panel__comment-content {
+  font-size: 1.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--just-white);
+}
+.user-panel__comment-date-container {
+  display: flex;
+  justify-content: right;
+}
+.user-panel__comment-date {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--soft-gray);
 }
 /* Social-Media */
 .user-panel__social-media-container {

@@ -58,6 +58,39 @@ const setHyperlinkToPersonalAccount = function() {
       const userData = JSON.parse(readableUserData);
       const baseUserIconURL = "https://gdbrowser.com/icon/";
       const baseUserStyle = `col1=${userData.col1}&col2=${userData.col2}&glow=${userData.glow}`;
+      /* Fetching User Comments */
+      const readableDataAmountPages = await fetchData(`https://gdbrowser.com/api/comments/${userData.accountID}?type=profile`);
+      const dataAmountPages = JSON.parse(readableDataAmountPages);
+      const amountPages = dataAmountPages[0].pages;
+      const userComments = [];
+      for(let i = 0; i < amountPages; i++) {
+        const readablePartialUserComments= await fetchData(`https://gdbrowser.com/api/comments/${userData.accountID}?type=profile&page=${i}`);
+        const partialUserComments = JSON.parse(readablePartialUserComments);
+        partialUserComments.forEach(userComment => {userComments.push(userComment)});
+      }
+      let formattedUserComments = "";
+      userComments.forEach((userComment, index) => {
+        formattedUserComments += `
+          <div class="user-panel__user-comment-wrapper ${((index + 1) % 2 !== 0)? 'user-panel__user-comment-wrapper--odd' : 'user-panel__user-comment-wrapper--even'}">
+            <div class="user-panel__user-comment">
+              <div class="user-panel__commenter-data-container">
+                <p class="user-panel__commenter-username">${userData.username}</p>
+                <div class="user-panel__likes-container">
+                  <span class="icon icon--md icon--like"></span>
+                  <p class="user-panel__likes">${userComment.likes}</p>
+                </div>
+              </div>
+              <div class="user-panel__comment-content-container">
+                <p class="user-panel__comment-content">${userComment.content}</p>
+              </div>
+              <div class="user-panel__comment-date-container">
+                <p class="user-panel__comment-date">${userComment.date}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      /* /Fetching User Comments */
       modalContent.innerHTML = `
         <div class="y-container">
           <div class="user-panel__header-container">
@@ -109,7 +142,7 @@ const setHyperlinkToPersonalAccount = function() {
             </div>
           </div>
           <div class="user-panel__comments-container">
-            <div class="user-panel__comments"></div>
+            <div class="user-panel__comments">${formattedUserComments}</div>
           </div>
           <div></div>
         </div>
